@@ -6,26 +6,20 @@ contract HKToken
 
 mapping(address => uint256) balances;
 
-
 mapping(address => mapping (
 		address => uint256)) allowed;
 
-
 uint256 _totalSupply = 500;
 
-
 address public owner;
-
 
 event Approval(address indexed _owner,
 				address indexed _spender,
 				uint256 _value);
 
-
 event Transfer(address indexed _from,
 			address indexed _to,
 			uint256 _value);
-
 
 function totalSupply()
 		public view returns (
@@ -35,14 +29,12 @@ theTotalSupply = _totalSupply;
 return theTotalSupply;
 }
 
-
 function balanceOf(address _owner)
 		public view returns (
 		uint256 balance)
 {
 return balances[_owner];
 }
-
 
 function approve(address _spender,
 				uint256 _amount)
@@ -51,12 +43,10 @@ function approve(address _spender,
 	
 allowed[msg.sender][_spender] = _amount;
 	
-
 emit Approval(msg.sender,
 				_spender, _amount);
 return true;
 }
-
 
 function transfer(address _to,
 				uint256 _amount)
@@ -78,8 +68,6 @@ function transfer(address _to,
 		return false;
 	}
 }
-
-
 
 function transferFrom(address _from,
 					address _to,
@@ -104,7 +92,6 @@ else
 	return false;
 }
 }
-
 
 function allowance(address _owner,
 				address _spender)
